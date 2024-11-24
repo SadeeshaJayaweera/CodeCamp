@@ -1,0 +1,61 @@
+<style type='text/scss'>
+
+$colors:(color1: blue, color2:black, color3:red);
+
+@each $key, $color in $colors {
+  .#{$color}-bg {background-color:$color;}
+}
+
+
+
+  div {
+    height: 200px;
+    width: 200px;
+  }
+</style>
+
+<div class="blue-bg"></div>
+<div class="black-bg"></div>
+<div class="red-bg"></div>
+
+//The Question ✅🧑‍💻
+
+// Sass provides the @each directive to loop over items in a list or map.
+// It assigns each item in the list to a variable during each iteration.
+
+// Example 1: Using @each with a list
+// This generates text color classes for blue, red, and green.
+@each $color in blue, red, green {
+  .#{$color}-text {
+    color: $color; // Dynamically sets the text color for each class.
+  }
+}
+
+// Example 2: Using @each with a map
+// Maps allow you to associate keys with values, making the code more descriptive.
+$colors: (color1: blue, color2: red, color3: green);
+
+@each $key, $color in $colors {
+  .#{$color}-text {
+    color: $color; // Dynamically sets the text color for each map entry.
+  }
+}
+
+// Task: Write an @each directive that creates background color classes
+// for a list of colors: blue, black, red.
+// Each class should set the background color dynamically.
+
+// Step 1: Define a list of colors.
+$color-list: blue, black, red;
+
+// Step 2: Loop over the list using @each.
+@each $color in $color-list {
+  .#{$color}-bg { 
+    background-color: $color; // Dynamically sets the background color.
+  }
+}
+
+// The compiled CSS will look like this:
+// .blue-bg { background-color: blue; }
+// .black-bg { background-color: black; }
+// .red-bg { background-color: red; }
