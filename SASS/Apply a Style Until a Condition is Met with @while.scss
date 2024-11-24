@@ -1,0 +1,53 @@
+<style type='text/scss'>
+$x:1;
+@while $x<6{
+  .text-#{$x} {
+    font-size:15px*$x;
+  }
+  $x:$x+1;
+}
+
+
+</style>
+
+<p class="text-1">Hello</p>
+<p class="text-2">Hello</p>
+<p class="text-3">Hello</p>
+<p class="text-4">Hello</p>
+<p class="text-5">Hello</p>
+
+
+
+//The Question - ✅🧑‍💻
+
+// The @while directive in Sass functions similarly to the JavaScript while loop.
+// It repeats a block of code until the given condition is no longer true.
+
+// Task: Use @while to create 5 classes (.text-1 to .text-5).
+// Each class should set the font size dynamically to 15px multiplied by the index number.
+
+// Step 1: Define a variable to act as the loop counter.
+// Initialize $x with a value of 1.
+$x: 1;
+
+// Step 2: Create a @while loop that runs while $x is less than or equal to 5.
+@while $x <= 5 {
+  
+  // Step 3: Dynamically generate a class name using interpolation.
+  // Each iteration creates a class named .text-$x.
+  .text-#{$x} {
+    
+    // Step 4: Set the font-size property to 15px multiplied by the current value of $x.
+    font-size: 15px * $x;
+  }
+  
+  // Step 5: Increment $x by 1 to avoid an infinite loop.
+  $x: $x + 1;
+}
+
+// The compiled CSS will look like this:
+// .text-1 { font-size: 15px; }
+// .text-2 { font-size: 30px; }
+// .text-3 { font-size: 45px; }
+// .text-4 { font-size: 60px; }
+// .text-5 { font-size: 75px; }
