@@ -1,0 +1,95 @@
+<style type='text/scss'>
+@mixin border-stroke($val){
+  @if $val == light {
+    border: 1px solid black;
+  }
+  @else if  $val == medium{
+    border:3px solid black;
+  }
+  @else if $val == heavy{
+    border:6px solid black;
+  }
+  @else{
+    border:none;
+  }
+}
+
+
+  #box {
+    width: 150px;
+    height: 150px;
+    background-color: red;
+    @include border-stroke(medium);
+  }
+</style>
+
+<div id="box"></div>
+
+
+
+// The Question - Answer and Explanation ✅✅🧑‍💻
+
+// In Sass, the @if directive is used to add logic to styles.
+// It works similarly to the if statement in JavaScript.
+
+// Example 1: Using @if inside a mixin to apply styles conditionally.
+@mixin make-bold($bool) {
+  @if $bool == true {
+    font-weight: bold; // Applies bold font if $bool is true.
+  }
+}
+
+// You can add more conditions using @else if and @else directives.
+// Example 2: A mixin that applies text colors based on a parameter.
+@mixin text-effect($val) {
+  @if $val == danger {
+    color: red; // Sets color to red for "danger".
+  }
+  @else if $val == alert {
+    color: yellow; // Sets color to yellow for "alert".
+  }
+  @else if $val == success {
+    color: green; // Sets color to green for "success".
+  }
+  @else {
+    color: black; // Default color is black for other values.
+  }
+}
+
+// Task: Create a mixin called border-stroke with logic to apply borders.
+// The mixin takes a parameter $val and applies specific border styles 
+// based on the value using @if, @else if, and @else directives.
+
+@mixin border-stroke($val) {
+  @if $val == light {
+    border: 1px solid black; // Sets a light border.
+  }
+  @else if $val == medium {
+    border: 3px solid black; // Sets a medium border.
+  }
+  @else if $val == heavy {
+    border: 6px solid black; // Sets a heavy border.
+  }
+  @else {
+    border: none; // Removes the border for any other value.
+  }
+}
+
+// Examples of using the border-stroke mixin:
+.light-border {
+  @include border-stroke(light); // Applies a light border.
+}
+
+.medium-border {
+  @include border-stroke(medium); // Applies a medium border.
+}
+
+.heavy-border {
+  @include border-stroke(heavy); // Applies a heavy border.
+}
+
+.no-border {
+  @include border-stroke(thin); // No border applied (default case).
+}
+
+
