@@ -1,0 +1,56 @@
+<style type='text/scss'>
+@for $j from 1 through 5 {
+  .text-#{$j} {
+    font-size:15px*$j;
+  }
+}
+
+
+</style>
+
+<p class="text-1">Hello</p>
+<p class="text-2">Hello</p>
+<p class="text-3">Hello</p>
+<p class="text-4">Hello</p>
+<p class="text-5">Hello</p>
+
+// The Question - 🧑‍💻✅
+
+// In Sass, the @for directive is used to create styles in a loop.
+// It works similarly to a for loop in JavaScript, iterating over a range of values.
+
+// There are two ways to use @for:
+// 1. "start through end" - Includes the end value in the loop.
+// 2. "start to end" - Excludes the end value from the loop.
+
+// Example: A "start through end" loop to generate column widths:
+@for $i from 1 through 12 {
+  .col-#{$i} { 
+    width: 100%/12 * $i; // Dynamically sets the width for each column.
+  }
+}
+
+// This generates CSS classes like:
+// .col-1 { width: 8.33333%; }
+// .col-2 { width: 16.66667%; }
+// ...
+// .col-12 { width: 100%; }
+
+// Task: Use a "start to end" loop to create font-size styles dynamically.
+
+// Create a loop with a variable $j that goes from 1 to 6 (excluding 6).
+@for $j from 1 to 6 {
+  .text-#{$j} { 
+    font-size: 15px * $j; // Sets the font size to 15px multiplied by the current index.
+  }
+}
+
+// This generates CSS classes like:
+// .text-1 { font-size: 15px; }
+// .text-2 { font-size: 30px; }
+// .text-3 { font-size: 45px; }
+// .text-4 { font-size: 60px; }
+// .text-5 { font-size: 75px; }
+
+// Using @for in this way allows you to create styles programmatically, 
+// making your code more efficient and reducing duplication.
